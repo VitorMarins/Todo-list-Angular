@@ -1,12 +1,14 @@
-<div class="lista-tarefas">
-  <h2 id="title-list">Lista de Tarefas:</h2>
-  <ul>
-    @for (tarefa of tarefas; track $index) {
-      <li class="tarefa-item">
-        <h3>{{ tarefa.nome }}</h3>
-        <p>{{ tarefa.data }}</p>
-        <p>Prioridade: {{ tarefa.prioridade }}</p>
-      </li>
-    }
-  </ul>
-</div>
+@if (tarefas.length > 0) {
+  <div class="lista-tarefas">
+    <h2 id="title-list">Lista de Tarefas:</h2>
+    <ul>
+      @for (tarefa of tarefas; track $index) {
+        <li class="tarefa-item">
+          <h3>{{ tarefa.nome }}</h3>
+          <p>{{ tarefa.data }}</p>
+          <p>Prioridade: {{ tarefa.prioridade }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+}
