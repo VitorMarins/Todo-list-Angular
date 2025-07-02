@@ -1,0 +1,19 @@
+<form class="form-custom">
+  <div class="input-container">
+    <label for="nome" class="label-input">Nome</label>
+    <input type="text" class="input-data" name="nomeTarefa" placeholder="Digite o nome da tarefa..." id="nome" [(ngModel)] = "tarefa.nome" />
+  </div>
+  <div class="input-container">
+    <label for="data" class="label-input">Data</label>
+    <input type="date" name="data" id="data" class="input-data" [(ngModel)] = "tarefa.data"/>
+  </div>
+  <div class="input-container">
+    <label for="prioridade" class="label-input">Prioridade</label>
+    <select name="prioridade" id="prioridade" class="input-data select-data" [(ngModel)] = "tarefa.prioridade">
+      <option value="baixa">Baixa</option>
+      <option value="media">Média</option>
+      <option value="alta">Alta</option>
+    </select>
+  </div>
+  <button type="button" class="btn-custom" (click)="adicionarTarefa()">Adicionar Tarefa</button>
+</form>
