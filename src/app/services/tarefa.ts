@@ -13,4 +13,8 @@ export class Tarefa {
     this.tarefas.unshift({ ...tarefa });
     localStorage.setItem('tarefas', JSON.stringify(this.tarefas));
   }
+  removerTarefa(_id: string) {
+    this.tarefas = this.tarefas.filter(tarefa => tarefa._id !== _id);
+    localStorage.setItem('tarefas', JSON.stringify(this.tarefas));
+  }
 }

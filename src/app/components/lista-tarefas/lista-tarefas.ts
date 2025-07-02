@@ -17,4 +17,9 @@ export class ListaTarefas implements OnInit {
     this.tarefas = this.TarefaService.tarefas;
     console.log('Tarefas loaded:', this.tarefas);
   }
+  removerTarefa(_id: string) {
+    console.log('Removing task with ID:', _id);
+    this.TarefaService.removerTarefa(_id);
+    this.tarefas = this.TarefaService.tarefas;
+  }
 }
