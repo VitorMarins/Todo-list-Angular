@@ -15,10 +15,14 @@ export class FormTarefas {
   constructor(private tarefaService: TarefaService) {}
 
   formatToDDMMYYYY(date: Date): string {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const day = String(date.getDate() + 1).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
+  }
+
+  generateRandomIdSimple() {
+    return Math.random().toString(36).substring(2, 9); // Gera um ID de 7 caracteres
   }
 
   adicionarTarefa() {
@@ -26,6 +30,12 @@ export class FormTarefas {
       alert('Por favor, preencha o campo de tarefa.');
       return;
     }
+    if (this.tarefa.data.trim() === '') {
+      alert('Por favor, preencha o campo de data.');
+      return;
+    }
+
+    this.tarefa._id = this.generateRandomIdSimple();
     this.tarefa.data = this.formatToDDMMYYYY(new Date(this.tarefa.data));
     this.tarefaService.adicionarTarefa(this.tarefa);
     this.tarefa = { _id: '', nome: '', data: '', prioridade: 'baixa' };
